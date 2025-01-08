@@ -71,7 +71,10 @@ export default function MyForm() {
         categories: categories,
       };
 
-      const response = await axios.post("/api/generate", payload);
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/generate`,
+        payload
+      );
 
       if (response.status !== 200) {
         throw new Error("API call failed");
