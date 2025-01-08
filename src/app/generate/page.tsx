@@ -20,6 +20,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Textarea } from "@/components/ui/textarea";
+
 import {
   MultiSelector,
   MultiSelectorContent,
@@ -30,7 +31,8 @@ import {
 } from "@/components/ui/multi-select";
 import { Rating } from "@/components/ui/rating";
 import HyperText from "@/components/ui/hyper-text";
-import ScriptCopyBtn from "@/components/ui/script-copy-btn";
+import { TextAnimate } from "@/components/ui/text-animate";
+import { WarpBackground } from "@/components/ui/warp-background";
 
 import { useToast } from "@/hooks/use-toast";
 
@@ -99,122 +101,133 @@ export default function MyForm() {
   const { pending } = useFormStatus();
 
   return (
-    <div className="main flex items-center justify-center h-screen">
-      <div className="main-container">
-        <div className="heading flex flex-col items-center justify-center space-y-4">
-          {/* <h1 className="text-4xl font-bold text-center">Generate Title Ideas</h1> */}
-          <HyperText className="text-center">
-            Generate Capstone Title Ideas
-          </HyperText>
-          <p className="text-center text-md mt-4 justify-center max-w-3xl">
+    <WarpBackground>
+      <div className="main flex items-center justify-center h-screen">
+        <div className="main-container bg-white shadow-sm px-20 py-3">
+          <div className="heading flex flex-col items-center justify-center space-y-4">
+            {/* <h1 className="text-4xl font-bold text-center">Generate Title Ideas</h1> */}
+            <HyperText className="text-center">
+              Generate Capstone Title Ideas
+            </HyperText>
+            {/* <p className="text-center text-md mt-4 justify-center max-w-3xl">
             Unleash your creativity and find the perfect project idea with our{" "}
             AI-powered tool! Designed specifically for computer science
             students, this app helps you generate unique, innovative, and
             tailored project titles.{" "}
-          </p>
-        </div>
-        <Form {...form}>
-          <form
-            onSubmit={form.handleSubmit(onSubmit)}
-            className="space-y-8 max-w-3xl mx-auto py-10 "
-          >
-            <FormField
-              control={form.control}
-              name="prompt_input"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Enter topics or specific keywords</FormLabel>
-                  <FormControl>
-                    <Textarea
-                      placeholder="e.g I want something thats helps the school"
-                      className="resize-none"
-                      {...field}
-                    />
-                  </FormControl>
+          </p> */}
+            <TextAnimate animation="blurInUp" by="word">
+              {
+                "Unleash your creativity and find the perfect project idea with our  AI-powered tool! Designed specifically for computer science students, this app helps you generate unique, innovative, and tailored project titles."
+              }
+            </TextAnimate>
+          </div>
+          <Form {...form}>
+            <form
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="space-y-8 max-w-3xl mx-auto py-10 "
+            >
+              <FormField
+                control={form.control}
+                name="prompt_input"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Enter topics or specific keywords</FormLabel>
+                    <FormControl>
+                      <Textarea
+                        placeholder="e.g I want something thats helps the school"
+                        className="resize-none"
+                        {...field}
+                      />
+                    </FormControl>
 
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
 
-            <FormField
-              control={form.control}
-              name="categories"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Categories</FormLabel>
-                  <FormControl>
-                    <MultiSelector
-                      values={field.value}
-                      onValuesChange={field.onChange}
-                      loop
-                      className="max-w"
-                    >
-                      <MultiSelectorTrigger>
-                        <MultiSelectorInput placeholder="Select categories" />
-                      </MultiSelectorTrigger>
-                      <MultiSelectorContent>
-                        <MultiSelectorList>
-                          {[
-                            "Healthcare",
-                            "Education",
-                            "Economic",
-                            "Environment",
-                            "Technology",
-                            "Social Good",
-                            "Entertainment",
-                            "Sports",
-                            "Artificial Intelligence",
-                            "Machine Learning",
-                            "Blockchain",
-                            "Cybersecurity",
-                            "Augmented Reality (AR)",
-                            "Virtual Reality (VR)",
-                            "Internet of Things (IoT)",
-                            "Cloud Computing",
-                            "Data Science",
-                            "Big Data",
-                            "Gaming",
-                            "Sustainability",
-                            "E-commerce",
-                            "Finance",
-                            "Automation",
-                            "Robotics",
-                            "Transportation",
-                            "Smart Cities",
-                            "Energy",
-                            "Agriculture",
-                            "Media",
-                            "Space Exploration",
-                            "Accessibility",
-                            "Legal Tech",
-                            "Travel",
-                            "Food and Nutrition",
-                            "Music and Arts",
-                            "Mental Health",
-                            "Disaster Management",
-                            "Communication",
-                            "Startups",
-                            "Personal Productivity",
-                            "Fashion",
-                            "Design",
-                            "Computer Vision",
-                          ].map((category) => (
-                            <MultiSelectorItem key={category} value={category}>
-                              {category}
-                            </MultiSelectorItem>
-                          ))}
-                        </MultiSelectorList>
-                      </MultiSelectorContent>
-                    </MultiSelector>
-                  </FormControl>
-                  <FormDescription>Select multiple categories.</FormDescription>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+              <FormField
+                control={form.control}
+                name="categories"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Categories</FormLabel>
+                    <FormControl>
+                      <MultiSelector
+                        values={field.value}
+                        onValuesChange={field.onChange}
+                        loop
+                        className="max-w"
+                      >
+                        <MultiSelectorTrigger>
+                          <MultiSelectorInput placeholder="Select categories" />
+                        </MultiSelectorTrigger>
+                        <MultiSelectorContent>
+                          <MultiSelectorList>
+                            {[
+                              "Healthcare",
+                              "Education",
+                              "Economic",
+                              "Environment",
+                              "Technology",
+                              "Social Good",
+                              "Entertainment",
+                              "Sports",
+                              "Artificial Intelligence",
+                              "Machine Learning",
+                              "Blockchain",
+                              "Cybersecurity",
+                              "Augmented Reality (AR)",
+                              "Virtual Reality (VR)",
+                              "Internet of Things (IoT)",
+                              "Cloud Computing",
+                              "Data Science",
+                              "Big Data",
+                              "Gaming",
+                              "Sustainability",
+                              "E-commerce",
+                              "Finance",
+                              "Automation",
+                              "Robotics",
+                              "Transportation",
+                              "Smart Cities",
+                              "Energy",
+                              "Agriculture",
+                              "Media",
+                              "Space Exploration",
+                              "Accessibility",
+                              "Legal Tech",
+                              "Travel",
+                              "Food and Nutrition",
+                              "Music and Arts",
+                              "Mental Health",
+                              "Disaster Management",
+                              "Communication",
+                              "Startups",
+                              "Personal Productivity",
+                              "Fashion",
+                              "Design",
+                              "Computer Vision",
+                            ].map((category) => (
+                              <MultiSelectorItem
+                                key={category}
+                                value={category}
+                              >
+                                {category}
+                              </MultiSelectorItem>
+                            ))}
+                          </MultiSelectorList>
+                        </MultiSelectorContent>
+                      </MultiSelector>
+                    </FormControl>
+                    <FormDescription>
+                      Select multiple categories.
+                    </FormDescription>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
 
-            {/* {output && (
+              {/* {output && (
             <ScriptCopyBtn
               showMultiplePackageOptions={false}
               codeLanguage="shell"
@@ -224,51 +237,58 @@ export default function MyForm() {
             />
           )} */}
 
-            <FormField
-              control={form.control}
-              name="result"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Output:</FormLabel>
-                  <FormControl>
-                    {isGenerating ? ( // Check if the result is being generated
-                      <Skeleton className="h-72 w-full resize-y" /> // Display the skeleton loader
-                    ) : (
-                      <Textarea
-                        placeholder=""
-                        className={`h-72 resize-y ${
-                          isResultVisible ? "" : `hidden`
-                        } `}
-                        {...field}
-                      />
-                    )}
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+              <FormField
+                control={form.control}
+                name="result"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel
+                      className={` ${isResultVisible ? "" : `hidden`} `}
+                    >
+                      Output
+                    </FormLabel>
+                    <FormControl>
+                      {isGenerating ? ( // Check if the result is being generated
+                        <Skeleton className="h-72 w-full resize-y" /> // Display the skeleton loader
+                      ) : (
+                        <Textarea
+                          placeholder=""
+                          className={`h-72 resize-y ${
+                            isResultVisible ? "" : `hidden`
+                          } `}
+                          {...field}
+                        />
+                      )}
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
 
-            <FormField
-              control={form.control}
-              name="rating"
-              render={({ field }) => (
-                <FormItem className=" flex-col items-start hidden">
-                  <FormLabel>Rating</FormLabel>
-                  <FormControl className="w-full">
-                    <Rating {...field} value={Number(field.value)} />
-                  </FormControl>
-                  <FormDescription>Please provide your rating.</FormDescription>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+              <FormField
+                control={form.control}
+                name="rating"
+                render={({ field }) => (
+                  <FormItem className=" flex-col items-start hidden">
+                    <FormLabel>Rating</FormLabel>
+                    <FormControl className="w-full">
+                      <Rating {...field} value={Number(field.value)} />
+                    </FormControl>
+                    <FormDescription>
+                      Please provide your rating.
+                    </FormDescription>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
 
-            <Button type="submit" disabled={pending}>
-              {loading ? "Generating..." : "Generate"}
-            </Button>
-          </form>
-        </Form>
+              <Button type="submit" disabled={pending}>
+                {loading ? "Generating..." : "Generate"}
+              </Button>
+            </form>
+          </Form>
+        </div>
       </div>
-    </div>
+    </WarpBackground>
   );
 }
