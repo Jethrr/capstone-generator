@@ -86,7 +86,7 @@ export default function MyForm() {
       setIsResultVisible(true);
       toast({
         title: "Success!",
-        description: "Project title generated successfully.",
+        description: "Project idea generated successfully.",
       });
       setLoading(false);
       setIsGenerating(false);
@@ -95,7 +95,7 @@ export default function MyForm() {
       toast({
         variant: "destructive",
         title: "Error!",
-        description: "Failed to generate project title.",
+        description: "Failed to generate project idea.",
       });
     }
   }
@@ -109,7 +109,7 @@ export default function MyForm() {
           <div className="heading flex flex-col items-center justify-center space-y-4">
             {/* <h1 className="text-4xl font-bold text-center">Generate Title Ideas</h1> */}
             <HyperText className="text-center">
-              Generate Capstone Title Ideas
+              Generate Capstone Project Ideas
             </HyperText>
             {/* <p className="text-center text-md mt-4 justify-center max-w-3xl">
             Unleash your creativity and find the perfect project idea with our{" "}
@@ -119,7 +119,7 @@ export default function MyForm() {
           </p> */}
             <TextAnimate animation="blurInUp" by="word">
               {
-                "Unleash your creativity and find the perfect project idea with our  AI-powered tool! Designed specifically for computer science students, this app helps you generate unique, innovative, and tailored project titles."
+                "Unleash your creativity and find the perfect project idea with our  AI-powered tool! Designed specifically for computer science students, this app helps you generate unique, innovative, and tailored project ideas."
               }
             </TextAnimate>
           </div>
@@ -136,7 +136,7 @@ export default function MyForm() {
                     <FormLabel>Enter topics or specific keywords</FormLabel>
                     <FormControl>
                       <Textarea
-                        placeholder="e.g I want something thats helps the school"
+                        placeholder="e.g I want something thats helps the school."
                         className="resize-none"
                         {...field}
                       />

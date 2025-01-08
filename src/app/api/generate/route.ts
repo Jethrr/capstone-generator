@@ -42,10 +42,10 @@ export async function POST(req: Request) {
     
     Remember to prioritize clarity, innovation, and alignment with the categories. Avoid generic or overused ideas, and ensure the project feels fresh and forward-thinking.
     `;
+    console.log(geminiApiKey);
 
     // Initialize the AI client
     const genAI = new GoogleGenerativeAI(geminiApiKey);
-
     const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
     // Use the prompt from the request
