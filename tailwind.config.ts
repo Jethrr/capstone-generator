@@ -57,7 +57,8 @@ export default {
   			sm: 'calc(var(--radius) - 4px)'
   		},
   		animation: {
-  			ripple: 'ripple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite'
+  			ripple: 'ripple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite',
+  			'border-beam': 'border-beam calc(var(--duration)*1s) infinite linear'
   		},
   		keyframes: {
   			ripple: {
@@ -66,6 +67,11 @@ export default {
   				},
   				'50%': {
   					transform: 'translate(-50%, -50%) scale(0.9)'
+  				}
+  			},
+  			'border-beam': {
+  				'100%': {
+  					'offset-distance': '100%'
   				}
   			}
   		}

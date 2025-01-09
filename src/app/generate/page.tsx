@@ -8,6 +8,8 @@ import { Button } from "@/components/ui/button";
 import axios from "axios";
 import { useFormStatus } from "react-dom";
 import { Skeleton } from "@/components/ui/skeleton";
+import { BorderBeam } from "@/components/ui/border-beam";
+import { BeatLoader } from "react-spinners";
 
 import {
   Form,
@@ -105,7 +107,7 @@ export default function MyForm() {
   return (
     <WarpBackground>
       <div className="main flex items-center justify-center h-screen">
-        <div className="main-container bg-white shadow-sm px-20 py-3">
+        <div className="relative main-container bg-white shadow-xl px-20 py-10">
           <div className="heading flex flex-col items-center justify-center space-y-4">
             {/* <h1 className="text-4xl font-bold text-center">Generate Title Ideas</h1> */}
             <HyperText className="text-center">
@@ -285,10 +287,15 @@ export default function MyForm() {
               />
 
               <Button type="submit" disabled={pending}>
-                {loading ? "Generating..." : "Generate"}
+                {loading ? (
+                  <BeatLoader color="#ffffff" size={12} />
+                ) : (
+                  "Generate"
+                )}
               </Button>
             </form>
           </Form>
+          <BorderBeam />
         </div>
       </div>
     </WarpBackground>
